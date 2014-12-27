@@ -1,0 +1,17 @@
+.counter-container{
+   height:55px;
+   overflow:hidden;
+   position:relative;
+   border: 1px solid #ccc;
+   border-radius: 2px;
+   background-image: url('/dashboard/zonnepanelen/images/odometer/jodometer-background.jpg');
+   background-repeat: repeat-x;
+   width: 90%;
+}
+.counter7{
+   width:100%;
+   height:55px;
+   overflow:hidden;
+   position:relative;
+   background-color:transparent;
+}

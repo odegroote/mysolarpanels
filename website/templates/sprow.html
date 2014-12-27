@@ -1,0 +1,13 @@
+<div class="row-fluid">
+	<div class="box visible-desktop">
+		<div class="box-header well">
+			<h2><i class="icon-info-sign"></i> {{title}}</h2>
+			<div class="box-icon">
+				<a href="#" class="btn btn-minimize btn-round" ng-click="minmaxToggle($event)">
+					<i class="icon-chevron-up" ></i>
+				</a>
+			</div>
+		</div>
+		<div class="box-content" ng-transclude />
+	</div>
+</div>
