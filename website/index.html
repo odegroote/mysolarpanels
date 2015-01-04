@@ -36,14 +36,14 @@ body {
 <link href="css/chosen.css" rel='stylesheet'>
 <link href="css/uniform.default.css" rel='stylesheet'>
 <link href="css/colorbox.css" rel='stylesheet'>
-<link href='css/jquery.cleditor.css' rel='stylesheet'>
-<link href='css/jquery.noty.css' rel='stylesheet'>
-<link href='css/noty_theme_default.css' rel='stylesheet'>
-<link href='css/elfinder.min.css' rel='stylesheet'>
-<link href='css/elfinder.theme.css' rel='stylesheet'>
-<link href='css/jquery.iphone.toggle.css' rel='stylesheet'>
-<link href='css/opa-icons.css' rel='stylesheet'>
-<link href='css/uploadify.css' rel='stylesheet'>
+<link href="css/jquery.cleditor.css" rel='stylesheet'>
+<link href="css/jquery.noty.css" rel='stylesheet'>
+<link href="css/noty_theme_default.css" rel='stylesheet'>
+<link href="css/elfinder.min.css" rel='stylesheet'>
+<link href="css/elfinder.theme.css" rel='stylesheet'>
+<link href="css/jquery.iphone.toggle.css" rel='stylesheet'>
+<link href="css/opa-icons.css" rel='stylesheet'>
+<link href="css/uploadify.css" rel='stylesheet'>
 <link href="zonnepanelen/css/odometer.css" rel='stylesheet'>
 <link href="zonnepanelen/css/zonnepanelen.css" rel='stylesheet'>
 
@@ -56,8 +56,7 @@ body {
 <link rel="shortcut icon" href="img/favicon.ico">
 
 <!-- application script for Zonnepanelen -->
-<script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.js"></script>
 <script src="zonnepanelen/js/app/solar.js"></script>
 <script src="zonnepanelen/js/controllers/RowController.js"></script>
 <script src="zonnepanelen/js/controllers/MeasurementController.js"></script>
@@ -119,12 +118,21 @@ body {
 				<div class="well nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li class="nav-header hidden-tablet">Main</li>
-						<li><a class="ajax-link" href="index.html"><i
-								class="icon-home"></i><span class="hidden-tablet">
-									Dashboard</span></a></li>
-						<li><a class="ajax-link" href="gallery.html"><i
-								class="icon-eye-open"></i><span class="hidden-tablet">
-									Gallery</span></a></li>
+						<li>
+							<a class="ajax-link" href="index.html">
+								<i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span>
+							</a>
+						</li>
+						<li>
+							<a class="ajax-link" href="graphs.html">
+								<i class="icon-signal"></i><span class="hidden-tablet"> Graphs</span>
+							</a>
+						</li>			
+						<li>
+							<a class="ajax-link" href="gallery.html">
+								<i class="icon-eye-open"></i><span class="hidden-tablet"> Gallery</span>
+							</a>
+						</li>
 					</ul>
 				</div>
 				<!--/.well -->
