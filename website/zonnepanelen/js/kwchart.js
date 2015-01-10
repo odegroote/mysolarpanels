@@ -2,7 +2,7 @@
 ///<reference path="period.ts" />
 var KwhChart = (function () {
     function KwhChart() {
-        this.kwhServiceUrl = "http://88.159.81.19/dashboard/data/kwh.php";
+        this.kwhServiceUrl = "http://88.159.81.18/dashboard/data/kwh.php";
         this.previousPoint = null;
     }
     KwhChart.prototype.updateKwh = function (cp) {

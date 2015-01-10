@@ -2,7 +2,7 @@
  * 
  */
 
-solarapp.controller('RowCtrl', function ($scope) {
+controllers.controller('RowCtrl', function ($scope) {
 	$scope.minmaxToggle = function(e) {
 			e.preventDefault();
 			var target = $(e.currentTarget).parent().parent().next('.box-content');

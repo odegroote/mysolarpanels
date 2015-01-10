@@ -15,7 +15,7 @@ var totalKwh = $('#totalKwh').jOdometer({
 // Setup measurement statistics data
 
 var today = new Date();
-var currentPeriod = new Month(today.getFullYear(), today.getMonth());
+var currentPeriod = new Month(today.getFullYear(), today.getMonth()+1);
 var kwhChart = new KwhChart();
 kwhChart.updateKwh(currentPeriod);
 

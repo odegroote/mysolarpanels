@@ -3,7 +3,7 @@
 
 class KwhChart {
 
-	private kwhServiceUrl: string = "http://88.159.81.19/dashboard/data/kwh.php";
+	private kwhServiceUrl: string = "http://88.159.81.18/dashboard/data/kwh.php";
 	private plt: any;
 	private produced: any
 	private previousPoint: any = null;

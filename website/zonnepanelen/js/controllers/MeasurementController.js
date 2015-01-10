@@ -2,7 +2,7 @@
  * 
  */
 
-solarapp.controller('MeasurementCtrl', ['$scope', '$interval', function ($scope, $interval) {
+controllers.controller('MeasurementCtrl', ['$scope', '$interval', function ($scope, $interval) {
 	
 	$scope.period = "dit is een test";
 	$scope.dailyavg = "4.88 kWh";
@@ -30,6 +30,7 @@ solarapp.controller('MeasurementCtrl', ['$scope', '$interval', function ($scope,
 			
 		})
 		.fail(function() { console.log("measurementstats.php failed");})
+		
 		$.getJSON("http://88.159.81.18/dashboard/data/watts.php")
 		.done(function(data) { 
 			$scope.pvoutput = ((data) + " W");
