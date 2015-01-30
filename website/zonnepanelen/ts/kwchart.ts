@@ -40,12 +40,13 @@ class KwhChart {
 		}
 	}
 
-	click (cp: Period, event: any, pos: any, item: any) {
+	click (cp: Period, event: any, pos: any, item: any): Period {
 		var xas = this.plt.getAxes().xaxis.c2p(pos.x1);
 		if (pos.x >= 0) {
-			if (!cp.isDayView() == null) {
-				cp.zoomin(Math.floor(pos.x));
-				this.updateKwh(cp);
+			if (!cp.isDayView()) {
+				var newperiod = cp.zoomin(Math.floor(pos.x));
+				this.updateKwh(newperiod);
+				return newperiod;
 			} else {
 				$.getJSON("data/dayusage.php", cp.getSelectionParameters())
 					.done(function(data) { 	
@@ -73,6 +74,7 @@ class KwhChart {
  					})
 					.fail(function() { console.log("data/dayusage failed");});
 				$('#myModal').modal('show');
+				return cp;
 			}	
 		}
    	}

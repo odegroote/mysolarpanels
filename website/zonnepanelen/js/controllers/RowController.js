@@ -2,7 +2,9 @@
  * 
  */
 
-controllers.controller('RowCtrl', function ($scope) {
+'use strict';
+
+spControllers.controller('RowController', function ($scope) {
 	$scope.minmaxToggle = function(e) {
 			e.preventDefault();
 			var target = $(e.currentTarget).parent().parent().next('.box-content');

@@ -17,6 +17,8 @@
 <meta name="description" content="SolarPower production at our home">
 <meta name="author" content="O. de Groote">
 
+<base href="/dashboard/">
+
 <!-- The styles -->
 <link id="bs-css" href="css/bootstrap-slate.css" rel="stylesheet">
 <style type="text/css">
@@ -40,8 +42,7 @@ body {
 <link href="css/jquery.noty.css" rel='stylesheet'>
 <link href="css/noty_theme_default.css" rel='stylesheet'>
 <link href="css/elfinder.min.css" rel='stylesheet'>
-<link href="css/elfinder.theme.css" rel='stylesheet'>
-<link href="css/jquery.iphone.toggle.css" rel='stylesheet'>
+<link href="css/elfinder.theme.css" rel='stylesheet'><link href="css/jquery.iphone.toggle.css" rel='stylesheet'>
 <link href="css/opa-icons.css" rel='stylesheet'>
 <link href="css/uploadify.css" rel='stylesheet'>
 <link href="zonnepanelen/css/odometer.css" rel='stylesheet'>
@@ -61,8 +62,11 @@ body {
 <script src="zonnepanelen/js/app/solar.js"></script>
 <script src="zonnepanelen/js/controllers/RowController.js"></script>
 <script src="zonnepanelen/js/controllers/MeasurementController.js"></script>
+<script src="zonnepanelen/js/controllers/KWhChartController.js"></script>
 <script src="zonnepanelen/js/directives/row.js"></script>
 <script src="zonnepanelen/js/directives/measurement.js"></script>
+<script src="zonnepanelen/js/period.js"></script>
+<script src="zonnepanelen/js/kwchart.js"></script>
 
 </head>
 
@@ -115,22 +119,22 @@ body {
 		<div class="row-fluid">
 
 			<!-- left menu starts -->
-			<div class="span2 main-menu-span">
+			<div class="span2 main-menu-span" ng-controller="MeasurementController">
 				<div class="well nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li class="nav-header hidden-tablet">Main</li>
-						<li>
-							<a class="ajax-link" href="./home">
+						<li ng-class="homeClass">
+							<a class="ajax-link" href="#/home" ng-click="galleryClass='';graphsClass='';homeClass='active'">
 								<i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span>
 							</a>
 						</li>
-						<li>
-							<a class="ajax-link" href="./graphs">
+						<li ng-class="graphsClass">
+							<a class="ajax-link" href="#/graphs" ng-click="galleryClass='';homeClass='';graphsClass='active'">
 								<i class="icon-signal"></i><span class="hidden-tablet"> Graphs</span>
 							</a>
 						</li>			
-						<li>
-							<a class="ajax-link" href="gallery.html">
+						<li ng-class="galleryClass">
+							<a class="ajax-link" href="#/gallery" ng-click="homeClass='';graphsClass='';galleryClass='active'">
 								<i class="icon-eye-open"></i><span class="hidden-tablet"> Gallery</span>
 							</a>
 						</li>
@@ -138,7 +142,7 @@ body {
 				</div>
 				<!--/.well -->
 				<br />
-				<div class="top-block" ng-controller="MeasurementCtrl">
+				<div class="top-block">
 					<div class="row-fluid">
 						<span class="well span14">Measurement statistics</span>
 					</div>
@@ -148,13 +152,13 @@ body {
 					<sp-measurement idvalue="usage" label="power&nbsp;draw">{{usage}}</sp-measurement>
 					<sp-measurement idvalue="cummaltive" label="energy&nbsp;draw">{{energydraw}}</sp-measurement>
 					<sp-measurement idvalue="sunup" label="sun&nbsp;up">{{sunup}}</sp-measurement>
-					<sp-measurement idvalue="temperature" label="Temperature">{{temperature}}</sp-measurement>
+					<sp-measurement idvalue="temperature" label="Temperature">{{temperature}}  &deg;C</sp-measurement>
 					<sp-measurement idvalue="sky" label="Sky">{{sky}}</sp-measurement>
 				</div>
 				<div class="top-block">
 					<div class="btn-group" data-toggle="buttons-radio">
-						<button id="bt-kwh" type="button" class="btn btn-primary active">kWh</button>
-						<button id="bt-euro" type="button" class="btn btn-primary">&euro;</button>
+						<button id="bt-kwh" type="button" class="btn btn-primary active" ng-click="kwhClick($event)">kWh</button>
+						<button id="bt-euro" type="button" class="btn btn-primary" ng-click="euroClick($event)">&euro;</button>
 					</div>
 					<div id="maxPulses">
 						<div class="counter-container">
@@ -176,8 +180,7 @@ body {
 				</div>
 			</noscript>
 
-			<div id="content" class="span10" ng-view>
-			</div>
+			<div id="content" class="span10" ng-view></div>
 		</div>
 		<!--/fluid-row-->
 
@@ -291,10 +294,7 @@ body {
 	<script src="zonnepanelen/js/jquery.jodometer.min.js"></script>
 
 	<!-- application script for Zonnepanelen -->
-	<script src="zonnepanelen/js/period.js"></script>
-	<script src="zonnepanelen/js/kwchart.js"></script>
 	<script src="zonnepanelen/js/zonnepanelen.js"></script>
-	<script src="zonnepanelen/js/weather.js"></script>
 	<script src="zonnepanelen/js/graphs.js"></script>
 
 </body>
