@@ -16,15 +16,12 @@ solarapp.config(['$routeProvider',
                       $routeProvider.
                         when('/home', {
                           templateUrl: '/dashboard/home.html',
-                          controller: 'RowController'
                         }).
                         when('/graphs', {
                           templateUrl: '/dashboard/graphs.html',
-                          controller: 'RowController'
                         }).
                         when('/gallery', {
                             templateUrl: '/dashboard/gallery.html',
-                            controller: 'RowController'
                           }).
                         otherwise({
                           redirectTo: '/home'

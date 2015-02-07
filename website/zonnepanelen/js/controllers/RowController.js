@@ -4,7 +4,7 @@
 
 'use strict';
 
-spControllers.controller('RowController', function ($scope) {
+spControllers.controller('RowController',['$scope', function ($scope) {
 	$scope.minmaxToggle = function(e) {
 			e.preventDefault();
 			var target = $(e.currentTarget).parent().parent().next('.box-content');
@@ -14,4 +14,4 @@ spControllers.controller('RowController', function ($scope) {
 				$('i',$(e.currentTarget)).removeClass('icon-chevron-down').addClass('icon-chevron-up');
 			target.slideToggle();
 	}
-});
+}]);

@@ -83,6 +83,7 @@ controller('HourAvgPerMonthController', function($scope) {
 	$scope.chart = new HourAvgPerMonthChart();
 
 	$("#houravgpermonth").bind("plothover", function (event, pos, item) {
+		e.preventDefault();
 		if (item ) {
 			if (previousPoint != item.dataIndex) {
 				$("#tooltip").remove();
@@ -97,6 +98,7 @@ controller('HourAvgPerMonthController', function($scope) {
 			$("#tooltip").remove();
 			previousPoint = null;
 		}
+		return false;
 	});
 	
 	$scope.chart.update();
