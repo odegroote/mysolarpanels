@@ -5,10 +5,12 @@
 'use strict';
 
 var spControllers = angular.module('spControllers', []);
+var spServices = angular.module('spServices', []);
 
 var solarapp = angular.module('solarApp', [
  'ngRoute',
- 'spControllers'
+ 'spControllers',
+ 'spServices'
 ]);
 
 solarapp.config(['$routeProvider',
