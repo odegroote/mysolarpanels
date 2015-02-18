@@ -1,4 +1,4 @@
-spServices.factory('HourAvgPerMonthService', ['$http', '$log', function($http, $log) {
+spServices.factory('HourAvgPerMonthService', ['$http', '$q', function($http, $q) {
 
 	var serviceUrl = "http://88.159.81.18/dashboard/data/houravgpermonth.php";
 
@@ -19,10 +19,10 @@ spServices.factory('HourAvgPerMonthService', ['$http', '$log', function($http, $
 		return ds;
 	}
 	  
-	return function HourAvgPerMonthChart(updateGraph) {
+	return function HourAvgPerMonthChart() {
 		
-		$http.get(serviceUrl)
-				.success(function(data) { updateGraph(getSeries(data)); })
-				.error(function() { $log.log(serviceUrl + " failed"); });		
+		return $http.get(serviceUrl).then(
+				function(response) {  return getSeries(response.data); },
+				function() { return $q.reject(serviceUrl + " failed"); });		
 	}
 }]);

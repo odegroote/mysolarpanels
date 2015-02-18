@@ -45,6 +45,6 @@ spControllers.controller('HourAvgPerMonthController', ['$scope', 'HourAvgPerMont
 
 	};
 	
-	dataservice(updateGraph)
+	dataservice().then( function(data) { updateGraph(data); }, function(data) { console.log("service call failed");});
 	
 }]);
